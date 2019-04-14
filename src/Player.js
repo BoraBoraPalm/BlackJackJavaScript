@@ -6,7 +6,7 @@ export default class Player {
     this.name = name;
     this.card = "";
     this.hands = new Array();
-    this.hands.push(new Hand());
+    this.hands.push(new Hand(parseInt(placeNumber)));
   }
 
   //Player says something

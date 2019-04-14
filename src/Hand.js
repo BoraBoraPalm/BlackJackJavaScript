@@ -2,13 +2,14 @@ import GetCardFile from "/src/GetCardFile";
 import DisplayCard from "/src/DisplayCard";
 
 export default class HandboxContentStart {
-  constructor() {
+  constructor(placeNumber) {
     this.cards = new Array();
     this.cardsAlreadyOnTable = 0;
     this.stringLength = 0;
     this.box = 0;
     this.fileAndPathAll;
     this.displayCards = new DisplayCard();
+    this.placeNumber = placeNumber;
   }
 
   //give Hand of Player a card: important!
@@ -43,7 +44,11 @@ export default class HandboxContentStart {
       i < this.fileAndPathAll.length;
       ++i
     ) {
-      this.displayCards.displayCard(this.fileAndPathAll[i], 1, 2);
+      this.displayCards.displayCard(
+        this.fileAndPathAll[i],
+        1,
+        this.placeNumber
+      );
       await new Promise(resolve => setTimeout(resolve, 1000));
     }
 

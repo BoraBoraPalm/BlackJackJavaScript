@@ -17,7 +17,13 @@ for (var i = 1; i <= 7; i++) {
   chairs.push(place);
 }
 
-let player = new Player("1", "Fredl");
+//WARUM WIRD BEI BEIDEN HÄNDEN JEWEILS NUR DIE HÄLFTE GESPIELT?!
+let player1 = new Player("7", "Fredl");
+
+player1.hands[0].showHandAllCards(
+  "HERZ;ASS;PIK;ZEHN;HERZ;ZWEI;KARO;DREI;PIK;FUENF"
+);
+
 /*
 test();
 async function test() {
@@ -35,10 +41,6 @@ async function test2() {
     await new Promise(resolve => setTimeout(resolve, 1000));
   }
 }*/
-
-var a = player.hands[0].showHandAllCards(
-  "HERZ;ASS;PIK;ZEHN;HERZ;ZWEI;KARO;DREI;PIK;FUENF"
-);
 
 //var a = player.hands[0].showHandAllCards("HERZ;ASS;PIK;NEUN");
 

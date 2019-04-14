@@ -4,12 +4,12 @@ export default class displayCard {
   constructor(numberOfHands) {
     //this.numberOfHands = numberOfHands;
   }
-  displayCard(fileAndPath, handNumber, numberOfCards) {
+  displayCard(fileAndPath, handNumber, chairNumber) {
     function display() {
       //alert("drinnen in show Hand!");
 
       //var c = document.createElement("canvas");
-      var c = document.getElementById("chair1");
+      var c = document.getElementById("chair" + chairNumber);
       var ctx = c.getContext("2d");
       var img = document.createElement("img");
 

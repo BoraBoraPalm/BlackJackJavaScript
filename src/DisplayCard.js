@@ -9,7 +9,7 @@ export default class displayCard {
       //alert("drinnen in show Hand!");
 
       //var c = document.createElement("canvas");
-      var c = document.getElementById("chair" + chairNumber);
+      var c = document.getElementById("cardsPlace" + chairNumber);
       var ctx = c.getContext("2d");
       var img = document.createElement("img");
 

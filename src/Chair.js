@@ -2,7 +2,7 @@ export default class Chair {
   constructor() {}
 
   createPlace(placeNumber) {
-    var chair = document.getElementById("chair" + placeNumber);
+    var chair = document.getElementById("cardsPlace" + placeNumber);
 
     //#1 position (rotation center is on table!!!)
     //position of players/chairs by using the cartesian coordinate system

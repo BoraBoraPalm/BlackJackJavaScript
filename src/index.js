@@ -18,9 +18,17 @@ for (var i = 1; i <= 7; i++) {
 }
 
 //WARUM WIRD BEI BEIDEN HÄNDEN JEWEILS NUR DIE HÄLFTE GESPIELT?!
-let player1 = new Player("7", "Fredl");
+let player1 = new Player("1", "Fredl");
 
-player1.hands[0].showHandAllCards(
+player1.hands[0].showHandAllCards("HERZ;ASS;PIK;ZEHN;HERZ;ZWEI");
+
+let player2 = new Player("2", "Fredl");
+
+player2.hands[0].showHandAllCards("KARO;DREI;PIK;FUENF");
+
+let player3 = new Player("6", "Fredl");
+
+player3.hands[0].showHandAllCards(
   "HERZ;ASS;PIK;ZEHN;HERZ;ZWEI;KARO;DREI;PIK;FUENF"
 );
 

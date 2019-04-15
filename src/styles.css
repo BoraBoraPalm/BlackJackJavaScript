@@ -6,112 +6,18 @@ body {
   border: 1px solid black;
 }
 
-#chair1 {
-  position: absolute;
-  max-width: 150px;
+canvas.chair {
   border: 1px solid black;
+  position: absolute;
   top: 150px;
-  left: 381px;
-
-  position: relative;
-  left: 10px + calc(sin(100) + 1px);
-
-  /*left: (10px * 2.718 * pow(cos(100deg * (3.14/180))));*/
-  /*top: (10px * 2.718 * pow(sin(100deg * (3.14/180))));*/
-
-  /*
-  -webkit-transform: rotate(315deg);
-  -moz-transform: rotate(315deg);
-  -o-transform: rotate(315deg);
-  -ms-transform: rotate(315deg);
-  */
+  left: 380px;
+  max-width: 150px;
 }
-
-#chair2 {
-  position: absolute;
-  max-width: 150px;
-  border: 1px solid black;
-  top: 150px;
-  left: 381px;
-  /*
-  -webkit-transform: rotate((315 - 12.8571428571) deg);
-  -moz-transform: rotate((315 - 12.8571428571) deg);
-  -o-transform: rotate((315 - 12.8571428571) deg);
-  -ms-transform: rotate((315 - 12.8571428571) deg);
-  */
-}
-
-#chair3 {
-  position: absolute;
-  max-width: 150px;
-  border: 1px solid black;
-  top: 150px;
-  left: 381px;
-  /*
-  -webkit-transform: rotate(315deg - 12.8571428571deg * 2);
-  -moz-transform: rotate(315deg - 12.8571428571deg * 2);
-  -o-transform: rotate(315deg - 12.8571428571deg * 2);
-  -ms-transform: rotate(315deg - 12.8571428571deg * 2);
-  */
-}
-
-#chair4 {
-  position: absolute;
-  max-width: 150px;
-  border: 1px solid black;
-  top: 150px;
-  left: 381px;
-
-  /*
-  -webkit-transform: rotate(315deg - 12.8571428571deg * 3);
-  -moz-transform: rotate(315deg - 12.8571428571deg * 3);
-  -o-transform: rotate(315deg - 12.8571428571deg * 3);
-  -ms-transform: rotate(315deg - 12.8571428571deg * 3);
-  */
-}
-
-#chair5 {
-  position: absolute;
-  max-width: 150px;
-  border: 1px solid black;
-  top: 150px;
-  left: 381px;
-  /*
-  -webkit-transform: rotate(315deg - 12.8571428571deg * 4);
-  -moz-transform: rotate(315deg - 12.8571428571deg * 4);
-  -o-transform: rotate(315deg - 12.8571428571deg * 4);
-  -ms-transform: rotate(315deg - 12.8571428571deg * 4);
-  */
-}
-
-#chair6 {
-  position: absolute;
-  max-width: 150px;
-  border: 1px solid black;
-  top: 150px;
-  left: 381px;
-
-  /*
-  -webkit-transform: rotate(315deg - 12.8571428571deg * 5);
-  -moz-transform: rotate(315deg - 12.8571428571deg * 5);
-  -o-transform: rotate(315deg - 12.8571428571deg * 5);
-  -ms-transform: rotate(315deg - 12.8571428571deg * 5);
-  */
-}
-
-#chair7 {
-  position: absolute;
-  max-width: 150px;
-  border: 1px solid black;
-  top: 150px;
-  left: 381px;
-
-  /*
-  -webkit-transform: rotate(315deg - 12.8571428571deg * 6);
-  -moz-transform: rotate(315deg - 12.8571428571deg * 6);
-  -o-transform: rotate(315deg - 12.8571428571deg * 6);
-  -ms-transform: rotate(315deg - 12.8571428571deg * 6);
-  */
+#table {
+  background: url("assets/images/background/BlackJackTablePicture.png");
+  background-repeat: no-repeat;
+  background-size: 790px 500px;
+  background-position: 60px 150px;
 }
 
 #card {
@@ -119,8 +25,11 @@ body {
 }
 
 body {
+  /*
   background: url("assets/images/background/BlackJackTablePicture.png");
   background-repeat: no-repeat;
+  */
+
   background-size: 800px 500px;
   background-position: 60px 150px;
 }

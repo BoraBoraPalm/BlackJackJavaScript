@@ -34,7 +34,7 @@ export default class HandboxContentStart {
   }
 
   //DAS ZEIGT NUR ALLE KARTEN AN!
-  async showHandAllCards(cards) {
+  showHandAllCards(cards) {
     var getFile = new GetCardFile(cards);
     this.fileAndPathAll = getFile.getFilePathOfCard();
 
@@ -49,7 +49,7 @@ export default class HandboxContentStart {
         1,
         this.placeNumber
       );
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      //await new Promise(resolve => setTimeout(resolve, 1000));
     }
 
     //feststellen, wenn Karten hinzugekommen sind zu String!

@@ -1,12 +1,12 @@
 import Hand from "/src/Hand";
 
 export default class Player {
-  constructor(placeNumber, name, handNumber) {
+  constructor(placeNumber, name) {
     this.placeNumber = placeNumber;
     this.name = name;
     this.card = "";
     this.hands = new Array();
-    this.hands.push(new Hand(parseInt(placeNumber)));
+    this.hands.push(this.placeNumber, new Hand(placeNumber, 1));
   }
 
   //Player says something

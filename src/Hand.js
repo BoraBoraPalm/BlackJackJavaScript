@@ -34,6 +34,33 @@ export default class HandboxContentStart {
 */
   }
 
+  //ZEIGT NUR DIE OFFENEN KARTEN DES DEALER AN
+  showHandDealer(action, cards) {
+    var getFile = new GetCardFile(cards);
+    this.fileAndPathAll = getFile.getFilePathOfCard();
+    var handNumber = 1;
+    if (action === "SHOWALL") {
+      for (var i = 0; i < this.fileAndPathAll.length; ++i) {
+        this.displayCards.displayCard(
+          this.fileAndPathAll[i],
+          handNumber,
+          this.placeNumber
+        );
+      }
+    } else if (action === "SHOW") {
+      this.displayCards.displayCard(
+        "assets/images/cards/backa.png",
+        handNumber,
+        this.placeNumber
+      );
+      this.displayCards.displayCard(
+        this.fileAndPathAll[1],
+        handNumber,
+        this.placeNumber
+      );
+    }
+  }
+
   //DAS ZEIGT NUR ALLE KARTEN AN!
   showHandAllCards(cards) {
     var getFile = new GetCardFile(cards);

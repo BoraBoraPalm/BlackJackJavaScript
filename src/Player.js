@@ -2,11 +2,11 @@ import Hand from "/src/Hand";
 
 export default class Player {
   constructor(placeNumber, name) {
-    this.placeNumber = placeNumber;
-    this.name = name;
-    this.card = "";
-    this.hands = new Array();
-    this.hands.push(this.placeNumber, new Hand(placeNumber, 1));
+    this.placeNumber = placeNumber; //sitting place of the chair
+    this.name = name; //name of the player
+    this.card = ""; //NOT USED YET -> DELETE?
+    this.hands = new Array(); //the playing hands of the player (because of split!)
+    this.hands.push(this.placeNumber, new Hand(placeNumber, 1)); //add automatically a new hand to the player, when he gets created"
   }
 
   //Player says something
@@ -43,11 +43,13 @@ export default class Player {
         break;
       case "R":
         alert(this.name + " want surrender");
+        break;
       case "DD":
         alert(this.name + " want double down");
         break;
       default:
         alert("SOMETHING WENT WRONG!");
+        break;
     }
   }
 }

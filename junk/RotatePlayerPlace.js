@@ -1,3 +1,4 @@
+//THIS IS NOT USED -> DELETE? ISTEAD CHAIR IS USED FOR ROTATION
 export default class RotatePlayerPlace {
   constuctore() {}
 

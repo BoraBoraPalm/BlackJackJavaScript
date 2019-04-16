@@ -62,7 +62,7 @@ for (var i = 0; i < gameHistory.length - 1; ++i) {
     case "DEALER":
       if (input[3] === "GET") {
         //GET
-        dealer.hand.showHandDealer("SHOW", input[7]);
+        //dealer.hand.showHandDealer("SHOW", input[7]);
         console.log(">>> GET");
       } else if (input[3] === "HAS") {
         //HAS
@@ -132,32 +132,3 @@ for (var i = 0; i < gameHistory.length - 1; ++i) {
       break;
   }
 }
-
-//let canvas = document.getElementById("gameScreen");
-//let context = canvas.getContext("2d"); //c == context
-
-//const GAME_WITH = 800;
-//const GAME_HEIGHT = 600;
-
-//let paddle = new Paddle(GAME_WITH, GAME_HEIGHT);
-
-/*
-var chairs = new Array(7);
-
-for (var i = 0; i <= 7; i++) {
-  let chair = new Chair();
-  let place = chair.createPlace(i);
-  chairs.push(place);
-}
-
-let player1 = new Player("7", "Fredl");
-let dealer1 = new Dealer("Seppl");
-dealer.hand.showHandDealer("SHOW", "PIK;BLACK;ASS;KREUZ;BLACK;ASS");
-
-player1.hands[1].showHandAllCards("HERZ;RED;ASS");
-*/
-//player1.hands[1].showHandAllCards("HERZ;RED;ASS;PIK;RED;ASS;PIK;RED;ASS");
-//player1.hands[1].showHandAllCards("HERZ;RED;ASS;PIK;RED;ASS;PIK;RED;ASS");
-
-//let player2 = new Player("3", "Fredl");
-//player2.hands[1].showHandAllCards("HERZ;ASS;PIK;ASS;PIK;ASS");

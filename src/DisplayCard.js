@@ -6,26 +6,24 @@ export default class displayCard {
   }
   displayCard(fileAndPath, handNumber, chairNumber) {
     function display() {
-      //alert("drinnen in show Hand!");
-
-      //var c = document.createElement("canvas");
+      //get canwas element which is written in the HTML5 file (index.html)
       var c = document.getElementById("cardsPlace" + chairNumber);
-      var ctx = c.getContext("2d");
-      var img = document.createElement("img");
+      var ctx = c.getContext("2d"); //get the 2d contect of the canvas
+      var img = document.createElement("img"); //create an element which is called "img"
 
-      //img.setAttribute("max-width:", "2px");
-      //img.setAttribute("max-height", "1px");
-      img.setAttribute("src", fileAndPath);
+      img.setAttribute("src", fileAndPath); //set in the HTML5 element the image path for the cards
 
+      //Now load the needet image which represents a card!
       img.onload = function() {
+        //set the alpha at 1, so it's not transparent
         ctx.globalAlpha = 1;
 
-        //alert(this.numberOfHands);
+        //if the player/dealer plays with hand 1:
         if (handNumber === 1) {
           //get canvas width and hight
           var width = c.width;
           var height = c.height;
-          console.log(height);
+          //console.log(height);
 
           //#0 random generator for placing the cards not clean! More real!
           var sloppy = new SloppyCardPosition();
@@ -51,6 +49,7 @@ export default class displayCard {
           var sloppyFactor2 = sloppy.getSloppyFactor(0, -10);
           ctx.translate(10, -10 + sloppyFactor2);
         } else {
+          //TODO: AREA FOR DISPLAY SPLIT!
         }
 
         /* OPTION 1: WORKS: DO NOT DELETE!

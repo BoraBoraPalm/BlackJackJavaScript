@@ -3,50 +3,45 @@ import DisplayCard from "/src/DisplayCard";
 
 export default class HandboxContentStart {
   constructor(placeNumber, handNumber) {
-    this.cards = new Array();
-    this.cardsAlreadyOnTable = 0;
-    this.numberOfCards = 0;
-    this.box = 0;
-    this.fileAndPathAll;
-    this.displayCards = new DisplayCard();
-    this.placeNumber = placeNumber;
-    this.handNumber = handNumber;
+    //this.cards = new Array(); //set cards of player
+    this.cardsAlreadyOnTable = 0; // cards which are already on table dont need to be placed again!
+    this.numberOfCards = 0; //number of Cards which are new in the function input!
+    this.box = 0; //TODO: NEED TO BE PROGRAMMED => this is for coins!
+    this.fileAndPathAll; //NEED TO BE GLOBAL? This is for path array of cards
+    this.displayCards = new DisplayCard(); //each hand displays it's cards!
+    this.placeNumber = placeNumber; // On which place the player/dealer is sitting! (this is for display cards!)
+    this.handNumber = handNumber; // needed for displayCard!
   }
 
-  //give Hand of Player a card: important!
-  // This function in dealer implementieren? AKTION: DEALER WIRFT KARTE ZU!
+  //NOT USED YET
   addCard(card) {
-    //alert("Drinnen!");
     this.cards.push(card);
-
-    /*
-    var imageCard = new Image();
-    imageCard.src = "assets/images/cards/10b.png";
-    imageCard.onload = function() {
-      // CREATE CANVAS CONTEXT
-      let canvas = document.getElementById("playerPlace1");
-      var ctx = canvas.getContent("2d");
-      canvas.width = imageCard.width;
-      canvas.height = imageCard.height;
-
-      ctx.drawImage(imageCard, 20, 20);
-    };
-*/
   }
 
-  //ZEIGT NUR DIE OFFENEN KARTEN DES DEALER AN
+  //only for the dealer to show open card, hide one card and show all cards
   showHandDealer(action, cards) {
+    //get filepath of cards, returns string array
     var getFile = new GetCardFile(cards);
     this.fileAndPathAll = getFile.getFilePathOfCard();
+    //read number of cards
+    this.numberOfCards = cards.split(",").length / 3;
+    //set static hand number of dealer!
     var handNumber = 1;
+
+    //if the dealer should show all cards
     if (action === "SHOWALL") {
-      for (var i = 0; i < this.fileAndPathAll.length; ++i) {
-        this.displayCards.displayCard(
-          this.fileAndPathAll[i],
-          handNumber,
-          this.placeNumber
-        );
+      if (this.numberOfCards > this.cardsAlreadyOnTable) {
+        for (var i = 0; i < this.fileAndPathAll.length; ++i) {
+          this.displayCards.displayCard(
+            this.fileAndPathAll[i],
+            handNumber,
+            this.placeNumber
+          );
+        }
+        //new number of cards on the place!
+        this.cardsAlreadyOnTable = this.numberOfCards;
       }
+      //or if the dealer should only show one card and one is hidden (show back of card)
     } else if (action === "SHOW") {
       this.displayCards.displayCard(
         "assets/images/cards/backa.png",
@@ -61,14 +56,15 @@ export default class HandboxContentStart {
     }
   }
 
-  //DAS ZEIGT NUR ALLE KARTEN AN!
+  //this function? method? is for the player to show all his cards
   showHandAllCards(cards) {
+    //get filepath of cards, returns string array
     var getFile = new GetCardFile(cards);
     this.fileAndPathAll = getFile.getFilePathOfCard();
+    //get number of cards
     this.numberOfCards = cards.split(",").length / 3;
-    //So modifizieren, dass gemerkt wird, wiviele karten bereits gesetzt wurden!
 
-    //was aber, wenn ich splitte?
+    //TODO: implement split!
     if (this.numberOfCards > this.cardsAlreadyOnTable) {
       for (var i = this.cardsAlreadyOnTable; i < this.numberOfCards; ++i) {
         this.displayCards.displayCard(
@@ -77,6 +73,7 @@ export default class HandboxContentStart {
           this.placeNumber
         );
       }
+      //set new number of cards (on which hand ????)
       this.cardsAlreadyOnTable = this.numberOfCards;
     }
   }
@@ -89,8 +86,4 @@ export default class HandboxContentStart {
   subMoney(money) {
     this.box -= money;
   }
-
-  //places the requiered card on the table
-  //  -> to call the piture, in need:
-  //    -> the suit yes, color no,  the picture, the blackJackValue maybe;
 }

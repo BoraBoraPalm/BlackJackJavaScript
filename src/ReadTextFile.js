@@ -1,9 +1,10 @@
 export default class ReadTextFile {
   constructor(path) {
+    //get the path of the textfile, where the game history is written down
     this.path = path;
   }
 
-  //90% just copied from the web!
+  //here: 90% just copied from the web: stackoverflow greets ;) !
   readTextFile() {
     var allText;
     var lines;

@@ -2,25 +2,24 @@ import Hand from "/src/Hand";
 
 export default class Dealer {
   constructor(name) {
-    this.placeNumber = 0;
-    this.name = name;
-    this.card = "";
-    this.placeNumber = 0;
-    this.handNumber = 1;
-    this.hand = new Hand(this.placeNumber, this.handNumber);
+    this.placeNumber = 0; //fix place of dealer
+    this.name = name; //dealer's name
+    this.card = ""; //NOT USED YET -> DELETE?
+    this.handNumber = 1; //dealre only plays with one hand (does do no split or such creepy stuff)
+    this.hand = new Hand(this.placeNumber, this.handNumber); //when dealer gets created, he get's automatic a hand!
   }
 
-  //Dealer says something
+  //dealer says something
   speak(message) {
     alert(message);
   }
-
+  //give Card to himself
   giveCard(place) {
     if (place === 0) {
-      //give Card to himself
     }
   }
 
+  //TODO: implement what dealer says!
   handSign(turn) {
     /*
     switch (turn) {

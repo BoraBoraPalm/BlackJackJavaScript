@@ -1,3 +1,4 @@
+//NOT USED AND WRITTEN BY ME: JUST FOR LOOKING AT ANOTHERS WORK! AND LEARN FROM IT.
 export class Engine {
   constructor() {
     document.body.style.margin = "0px";

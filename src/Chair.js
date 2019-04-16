@@ -2,11 +2,12 @@ export default class Chair {
   constructor() {}
 
   createPlace(placeNumber) {
+    //get HTML5 element
     var chair = document.getElementById("cardsPlace" + placeNumber);
 
     //#1 player area
     if (placeNumber > 0) {
-      //#1 position (rotation center is on table!!!)
+      //#1a position (rotation center is on table!!!)
       //position of players/chairs by using the cartesian coordinate system
 
       var xPositionStartChair = 380;
@@ -22,7 +23,7 @@ export default class Chair {
       chair.style.left = xPositionStartChair + xPosition + "px";
       chair.style.top = yPositionStartChair + yPosition + "px";
 
-      //#2 rotation (rotation center is on place center)
+      //#1b rotation (rotation center is on place center)
       //rotating the player/chairs
       as = 320;
       af = 94 / 7; //angle factor, 105° = whole factor, 105°/7 of one player relative to the other one!
@@ -32,10 +33,10 @@ export default class Chair {
       chair.style.transform = "rotate(" + angle + "deg)";
       //#2 dealer area
     } else if (placeNumber === 0) {
-      chair.style.left = 378 + "px";
-      chair.style.top = 240 + 78 + "px";
-      angle = 180;
-      chair.style.transform = "rotate(" + angle + "deg)";
+      chair.style.left = 378 + "px"; //origin x of delaer cards place
+      chair.style.top = 240 + 78 + "px"; //origin y of dealer cards place
+      angle = 180; //turn the dealer with the angle of 180°, so now he lookts to the player
+      chair.style.transform = "rotate(" + angle + "deg)"; //execute the transformation and translation
     }
   }
 }

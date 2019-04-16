@@ -65,16 +65,12 @@ export default class HandboxContentStart {
   showHandAllCards(cards) {
     var getFile = new GetCardFile(cards);
     this.fileAndPathAll = getFile.getFilePathOfCard();
-    this.numberOfCards = cards.split(";").length / 2;
+    this.numberOfCards = cards.split(",").length / 3;
     //So modifizieren, dass gemerkt wird, wiviele karten bereits gesetzt wurden!
 
     //was aber, wenn ich splitte?
     if (this.numberOfCards > this.cardsAlreadyOnTable) {
-      for (
-        var i = this.cardsAlreadyOnTable;
-        i < this.fileAndPathAll.length;
-        ++i
-      ) {
+      for (var i = this.cardsAlreadyOnTable; i < this.numberOfCards; ++i) {
         this.displayCards.displayCard(
           this.fileAndPathAll[i],
           this.handNumber,

@@ -1,7 +1,7 @@
 export default class GetCardFile {
   constructor(string) {
     this.string = string;
-    this.cardsArray = this.string.split(";");
+    this.cardsArray = this.string.split(",");
   }
 
   getFilePathOfCard() {
@@ -11,10 +11,11 @@ export default class GetCardFile {
       var offsetSuit;
       var cardNumber;
 
-      console.log("INDEX " + cardIndex + " |MODULO " + (cardIndex % 2));
+      console.log("INDEX " + cardIndex + " |MODULO " + (cardIndex % 3));
       console.log("STRING: " + this.cardsArray[cardIndex]);
       //first identify suit
-      if (cardIndex % 2 === 0) {
+      if (cardIndex % 3 === 0) {
+        var cardIndexPicture = cardIndex + 2;
         console.warn("modulo === 0");
         //console.log("FIRST: " + (cardIndex % 2) + " " + this.cardsArray[cardIndex]);
         switch (this.cardsArray[cardIndex]) {
@@ -39,7 +40,7 @@ export default class GetCardFile {
         }
       }
       //..than identify the picture
-      else {
+      else if (cardIndex === cardIndexPicture) {
         //console.log("SECOND: " + (cardIndex % 2) + " " + this.cardsArray[cardIndex]);
         switch (this.cardsArray[cardIndex]) {
           case "ASS":

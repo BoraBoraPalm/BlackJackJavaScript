@@ -1,7 +1,11 @@
+import ReadTextFile from "/src/ReadTextFile";
 import Player from "/src/Player";
 import Dealer from "/src/Dealer";
 import GetCardFile from "/src/GetCardFile";
 import Chair from "/src/Chair";
+
+var file = new ReadTextFile("/assets/textfiles/BlackJackGameHistory.txt");
+var gameHistory = file.readTextFile();
 
 //let canvas = document.getElementById("gameScreen");
 //let context = canvas.getContext("2d"); //c == context
@@ -10,6 +14,7 @@ import Chair from "/src/Chair";
 //const GAME_HEIGHT = 600;
 
 //let paddle = new Paddle(GAME_WITH, GAME_HEIGHT);
+/*
 var chairs = new Array(7);
 
 for (var i = 0; i <= 7; i++) {
@@ -28,3 +33,4 @@ player1.hands[1].showHandAllCards("HERZ;ASS;PIK;ASS;PIK;ASS");
 
 let player2 = new Player("3", "Fredl");
 player2.hands[1].showHandAllCards("HERZ;ASS;PIK;ASS;PIK;ASS");
+*/

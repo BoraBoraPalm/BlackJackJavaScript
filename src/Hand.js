@@ -28,14 +28,30 @@ export default class HandboxContentStart {
     //set static hand number of dealer!
     var handNumber = 1;
 
+    if (this.numberOfCards > this.cardsAlreadyOnTable) {
+      if (action === "SHOWALL") {
+        for (let i = this.cardsAlreadyOnTable; i < this.numberOfCards; ++i) {
+          this.displayCards.createImage(this.fileAndPathAll[i]);
+        }
+      } else if (action === "SHOW") {
+        //HIER WIRFT SICH NUN DIE FRAGE AUF: WIE KANN ICH PLAZIERTE BILDER WIEDER LÖSCHEN BZW DURCHSICHTIG MACHEN?!
+        //DEN PLATZ ZURÜCKSETZEN, WENN DANN GELÖSCHT BZW. MERKEN, WENN SCHLAMPIG PLAZIERT!
+        this.displayCards.createImage("assets/images/cards/backa.png");
+        this.displayCards.createImage(this.fileAndPathAll[1]);
+      }
+      this.cardsAlreadyOnTable = this.numberOfCards;
+
+      //JUST TEST: DELETE:
+      this.displayCards.modifyImageTest();
+    }
+    /*
     //if the dealer should show all cards
     if (action === "SHOWALL") {
       if (this.numberOfCards > this.cardsAlreadyOnTable) {
-        for (var i = 0; i < this.fileAndPathAll.length; ++i) {
-          this.displayCards.displayCard(
+        for (let i = 0; i < this.numberOfCards; ++i) {
+          this.displayCards.displayCardDealer(
             this.fileAndPathAll[i],
-            handNumber,
-            this.placeNumber
+            "SHOWALL"
           );
         }
         //new number of cards on the place!
@@ -43,17 +59,20 @@ export default class HandboxContentStart {
       }
       //or if the dealer should only show one card and one is hidden (show back of card)
     } else if (action === "SHOW") {
-      this.displayCards.displayCard(
-        "assets/images/cards/backa.png",
-        handNumber,
-        this.placeNumber
-      );
-      this.displayCards.displayCard(
-        this.fileAndPathAll[1],
-        handNumber,
-        this.placeNumber
-      );
+      for (let i = 0; i < 2; ++i) {
+        if (i === 0) {
+          this.displayCards.displayCardDealer(
+            "assets/images/cards/backa.png",
+            "SHOW"
+          );
+        } else {
+          this.displayCards.displayCardDealer(this.fileAndPathAll[i], "SHOW");
+        }
+      }
+
+      this.displayCards.displayCardDealer(this.fileAndPathAll[1]);
     }
+    */
   }
 
   //this function? method? is for the player to show all his cards
@@ -66,7 +85,7 @@ export default class HandboxContentStart {
 
     //TODO: implement split!
     if (this.numberOfCards > this.cardsAlreadyOnTable) {
-      for (var i = this.cardsAlreadyOnTable; i < this.numberOfCards; ++i) {
+      for (let i = this.cardsAlreadyOnTable; i < this.numberOfCards; ++i) {
         this.displayCards.displayCard(
           this.fileAndPathAll[i],
           this.handNumber,

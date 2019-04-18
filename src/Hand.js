@@ -32,13 +32,21 @@ export default class HandboxContentStart {
     //set static hand number of dealer!
     var handNumber = 1;
 
+    //#b if number of cards are changed, dealer can place new card or/and he can show hidden card
     //if number of cards changed, only place new cards
     if (this.numberOfCards > this.cardsAlreadyOnTable) {
+      //if number of cards are the same (and if "SHOWALL"), replace hidden card
+      if (action === "SHOWALL") {
+        this.displayCards.displayCardDealer(this.fileAndPathAll[0], action);
+      }
+
       for (let i = this.cardsAlreadyOnTable; i < this.numberOfCards; ++i) {
         this.displayCards.displayCardDealer(this.fileAndPathAll[i], action);
       }
+
       this.cardsAlreadyOnTable = this.numberOfCards;
     }
+    //#b if number of cards are not changed, dealer can only show hidden card
     //if number of cards are the same (and if "SHOWALL"), replace hidden card
     else if (
       this.numberOfCards === this.cardsAlreadyOnTable &&

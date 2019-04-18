@@ -4,10 +4,11 @@ export default class PositionCards {
     //this.index = 0;
   }
 
-  add(x, y) {
+  add(x, y, angle) {
     let coordinates = [];
     coordinates.push(x);
     coordinates.push(y);
+    coordinates.push(angle);
     this.positions.push(coordinates);
     //alert(this.addpositions)
     //this.index++;

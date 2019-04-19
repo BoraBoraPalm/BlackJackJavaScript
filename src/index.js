@@ -23,6 +23,8 @@ var players = [
   ["FREE"],
   ["FREE"]
 ];*/
+//TODO: THIS, BUT ALSO CENTER THE TEXT! AND ALSO CALCULATE TEXT IN THE RIGHT WAY!
+document.getElementById("resultChair1").innerHTML = "whatever";
 
 //WARUM FUNKTIONIERT DIES NUR GLOBLA UNF NICHT IN #1 ?????
 function prepaireChairs() {

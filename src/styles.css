@@ -2,8 +2,56 @@ body {
   font-family: sans-serif;
 }
 
-#gameScreen {
-  /*border: 1px solid black;*/
+#resultDealer {
+  position: absolute;
+  top: 200px; /*500/2 - 50*/
+  left: 405px;
+  width: 100px;
+  height: 50px;
+  color: white;
+  background-color: blue;
+}
+
+div.chairResult {
+  width: 100px;
+  height: 50px;
+  color: white;
+  background-color: blue;
+}
+#resultChair1 {
+  position: absolute;
+  top: 300px;
+  left: 600px;
+}
+#resultChair2 {
+  position: absolute;
+  top: 370px;
+  left: 540px;
+}
+#resultChair3 {
+  position: absolute;
+  top: 420px;
+  left: 470px;
+}
+#resultChair4 {
+  position: absolute;
+  top: 470px;
+  left: 400px;
+}
+#resultChair5 {
+  position: absolute;
+  top: 420px;
+  left: 330px;
+}
+#resultChair6 {
+  position: absolute;
+  top: 370px;
+  left: 260px;
+}
+#resultChair7 {
+  position: absolute;
+  top: 300px;
+  left: 200px;
 }
 
 canvas.chairCards {
@@ -13,15 +61,12 @@ canvas.chairCards {
   left: 380px;
   max-width: 150px;
 }
+
 #table {
   background: url("assets/images/background/BlackJackTablePicture.png");
   background-repeat: no-repeat;
   background-size: 790px 500px;
   background-position: 60px 150px;
-}
-
-#card {
-  /*position: absolute;*/
 }
 
 body {

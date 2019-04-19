@@ -7,7 +7,12 @@ import Chair from "/src/Chair";
 var file = new ReadTextFile("/assets/textfiles/BlackJackGameHistory.txt");
 var gameHistory = file.readTextFile();
 
-//create dummy player
+//create dummy players with map
+var testMap = new Map();
+testMap.set("Kurt", parseInt("2"), Object); //first name, second place, and object=new Player??? requiered???
+testMap.get("Kurt");
+
+//create dummy players
 var players = [
   ["FREE"],
   ["FREE"],
@@ -54,6 +59,7 @@ for (var i = 0; i < gameHistory.length - 1; ++i) {
           console.log(">>>>>> DEALER");
         } else if (input[6] === "PLAYER") {
           //PLAYER
+          //--->input[5] - 1 ==> chair Place? or sitting position? what is "0"
           players.splice(input[5] - 1, 0, new Player(input[5], input[7]));
           console.log(">>>>>> PLAYER");
         }
@@ -107,6 +113,7 @@ for (var i = 0; i < gameHistory.length - 1; ++i) {
         console.log(">>> HAS");
         if (input[6] === "CARDS") {
           //CARD
+          //input[2] - 1 ==> this also could be a name!!!
           players[input[2] - 1].hands[input[5]].showHandAllCards(input[7]);
           console.log(">>>>>> CARD");
         } else if (input[6] === "RESULT") {

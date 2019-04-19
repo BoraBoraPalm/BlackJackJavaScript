@@ -125,9 +125,12 @@ export default class displayCard {
         addPosition = false;
 
         //#counts how many cards already on table (delaer)
-        this.dealerCardsOnTable = 0;
+        //this.dealerCardsOnTable = 0;
         this.dealerCardsOnTable++;
       }
+
+      //HIER FEHLER, DASS ER RAUFZÄHLT --> oder warum plaziert eines weiter???!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
       //#2ab.if the hidden card is already replaced!
       else if (this.hiddenCardOverlayed === true) {
         //jetzt muss ich Schritt für Schritt jede karte überschreiben!

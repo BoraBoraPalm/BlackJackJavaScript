@@ -11,6 +11,8 @@ export default class HandboxContentStart {
     this.displayCards = new DisplayCard(); //each hand displays it's cards!
     this.placeNumber = placeNumber; // On which place the player/dealer is sitting! (this is for display cards!)
     this.handNumber = handNumber; // needed for displayCard!
+    this.sameAmountOfCardsShow === false;
+    this.replacedHiddenCard === false;
 
     this.called = false; //DEAST, DELETE
   }
@@ -28,32 +30,56 @@ export default class HandboxContentStart {
 
     //read number of cards
     this.numberOfCards = cards.split(",").length / 3;
+    //alert(cards);
 
-    //set static hand number of dealer!
-    var handNumber = 1;
-
+    //wenn SHOWALL
+    // *) verdeckte karte ersetzen
+    //    --> passiert beim ersten mal, wenn diese Funktion aufgerufen wird
+    //wenn SHOW
+    // *) eine Karte ist verdeckt
+    alert(action);
+    if (action === "SHOW") {
+      //place hidden card
+      this.displayCards.displayCardDealer(this.fileAndPathAll[0], action);
+      //place othercards (without hidden card!)
+      for (let i = this.cardsAlreadyOnTable + 1; i < this.numberOfCards; ++i) {
+        this.displayCards.displayCardDealer(this.fileAndPathAll[i], action);
+      }
+    } else if (action === "SHOWALL") {
+      //if first time showall called --> replaye hidden card
+      this.displayCards.displayCardDealer(this.fileAndPathAll[0], action);
+      //display all cards
+      for (let i = this.cardsAlreadyOnTable + 1; i < this.numberOfCards; ++i) {
+        this.displayCards.displayCardDealer(this.fileAndPathAll[i], action);
+      }
+    }
+    /*
     //#b if number of cards are changed, dealer can place new card or/and he can show hidden card
     //if number of cards changed, only place new cards
     if (this.numberOfCards > this.cardsAlreadyOnTable) {
       //if number of cards are the same (and if "SHOWALL"), replace hidden card
-      if (action === "SHOWALL") {
-        this.displayCards.displayCardDealer(this.fileAndPathAll[0], action);
-      }
+
+      //replace hidden card only will occur one time
+      this.displayCards.displayCardDealer(this.fileAndPathAll[0], action);
 
       for (let i = this.cardsAlreadyOnTable; i < this.numberOfCards; ++i) {
         this.displayCards.displayCardDealer(this.fileAndPathAll[i], action);
       }
 
       this.cardsAlreadyOnTable = this.numberOfCards;
+      this.sameAmountOfCardsShow = false;
     }
     //#b if number of cards are not changed, dealer can only show hidden card
     //if number of cards are the same (and if "SHOWALL"), replace hidden card
-    else if (
-      this.numberOfCards === this.cardsAlreadyOnTable &&
-      action === "SHOWALL"
-    ) {
-      this.displayCards.displayCardDealer(this.fileAndPathAll[0], action);
-    }
+    else if (this.numberOfCards === this.cardsAlreadyOnTable) {
+      if (action === "SHOWALL" && this.sameAmountOfCardsShow === false) {
+        //CALL ONLY ONCE
+        this.displayCards.displayCardDealer(this.fileAndPathAll[0], action);
+        this.sameAmountOfCardsShow = true;
+      } else {
+      }
+    } */
+    //alert(this.cardsAlreadyOnTable)
   }
 
   //this function? method? is for the player to show all his cards

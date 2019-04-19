@@ -8,11 +8,12 @@ var file = new ReadTextFile("/assets/textfiles/BlackJackGameHistory.txt");
 var gameHistory = file.readTextFile();
 
 //create dummy players with map
-var testMap = new Map();
-testMap.set("Kurt", parseInt("2"), Object); //first name, second place, and object=new Player??? requiered???
-testMap.get("Kurt");
+var players = new Map();
+//testMap.set("Kurt", parseInt("2"), Object); //first name, second place, and object=new Player??? requiered???
+//testMap.get("Kurt");
 
 //create dummy players
+/*
 var players = [
   ["FREE"],
   ["FREE"],
@@ -21,7 +22,7 @@ var players = [
   ["FREE"],
   ["FREE"],
   ["FREE"]
-];
+];*/
 
 //WARUM FUNKTIONIERT DIES NUR GLOBLA UNF NICHT IN #1 ?????
 function prepaireChairs() {
@@ -60,12 +61,13 @@ for (var i = 0; i < gameHistory.length - 1; ++i) {
         } else if (input[6] === "PLAYER") {
           //PLAYER
           //--->input[5] - 1 ==> chair Place? or sitting position? what is "0"
-          players.splice(input[5] - 1, 0, new Player(input[5], input[7]));
+          players.set(input[7] + "", new Player(input[5]));
           console.log(">>>>>> PLAYER");
         }
       }
       break;
     case "DEALER":
+      //alert(input[7]);
       if (input[3] === "GET") {
         //GET
         //dealer.hand.showHandDealer("SHOW", input[7]);
@@ -113,8 +115,9 @@ for (var i = 0; i < gameHistory.length - 1; ++i) {
         console.log(">>> HAS");
         if (input[6] === "CARDS") {
           //CARD
-          //input[2] - 1 ==> this also could be a name!!!
-          players[input[2] - 1].hands[input[5]].showHandAllCards(input[7]);
+          let player = players.get(input[2] + "");
+          player.hands[input[5]].showHandAllCards(input[7]);
+
           console.log(">>>>>> CARD");
         } else if (input[6] === "RESULT") {
           //RESULT

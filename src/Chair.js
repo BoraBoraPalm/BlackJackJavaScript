@@ -1,6 +1,7 @@
 export default class Chair {
   constructor() {}
 
+  //this creates the coordinates of each place and set elements to this coordinates!
   createPlace(placeNumber) {
     //get HTML5 element
     var chair = document.getElementById("cardsPlace" + placeNumber);

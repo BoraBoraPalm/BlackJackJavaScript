@@ -3,6 +3,7 @@ import Player from "/src/Player";
 import Dealer from "/src/Dealer";
 import GetCardFile from "/src/GetCardFile";
 import Chair from "/src/Chair";
+import Message from "/src/Message";
 
 var file = new ReadTextFile("/assets/textfiles/BlackJackGameHistory.txt");
 var gameHistory = file.readTextFile();
@@ -24,7 +25,6 @@ var players = [
   ["FREE"]
 ];*/
 //TODO: THIS, BUT ALSO CENTER THE TEXT! AND ALSO CALCULATE TEXT IN THE RIGHT WAY!
-document.getElementById("resultChair1").innerHTML = "whatever";
 
 //WARUM FUNKTIONIERT DIES NUR GLOBLA UNF NICHT IN #1 ?????
 function prepaireChairs() {
@@ -33,6 +33,8 @@ function prepaireChairs() {
   for (let i = 0; i <= 7; i++) {
     var chair = new Chair();
     var place = chair.createPlace(i);
+    var message = new Message();
+    message.createPlace(i);
     chairs.push(place);
   }
 }
@@ -123,6 +125,11 @@ for (var i = 0; i < gameHistory.length - 1; ++i) {
           console.log(">>>>>> CARD");
         } else if (input[6] === "RESULT") {
           //RESULT
+          let player = players.get(input[2] + "");
+          let placeNumber = player.placeNumber;
+
+          document.getElementById("resultChair" + placeNumber).innerHTML =
+            input[7];
           console.log(">>>>>> RESULT");
         }
       } else if (input[3] === "WANT") {

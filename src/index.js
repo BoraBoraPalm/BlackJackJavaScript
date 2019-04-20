@@ -4,6 +4,7 @@ import Dealer from "/src/Dealer";
 import GetCardFile from "/src/GetCardFile";
 import Chair from "/src/Chair";
 import Message from "/src/Message";
+import { setInterval } from "timers";
 
 var file = new ReadTextFile("/assets/textfiles/BlackJackGameHistory.txt");
 var gameHistory = file.readTextFile();
@@ -38,11 +39,19 @@ function prepaireChairs() {
     chairs.push(place);
   }
 }
+
 prepaireChairs();
 
-for (var i = 0; i < gameHistory.length - 1; ++i) {
-  var gameHistoryElements = gameHistory[i].split(";");
+var timeOut = 500;
+for (var turn = 0; turn < gameHistory.length - 1; ++turn) {
+  var gameHistoryElements = gameHistory[turn].split(";");
   var input = gameHistoryElements;
+  setTimeout(playOneTurn, timeOut * (turn + 1), input, turn);
+  //playOneTurn(input, turn);
+}
+
+var dealer;
+function playOneTurn(input, i) {
   console.log(input);
 
   switch (input[1]) {
@@ -60,7 +69,7 @@ for (var i = 0; i < gameHistory.length - 1; ++i) {
         console.log(">>> GET");
         if (input[6] === "DEALER") {
           //DEALER
-          var dealer = new Dealer("Seppl");
+          dealer = new Dealer("Seppl");
           console.log(">>>>>> DEALER");
         } else if (input[6] === "PLAYER") {
           //PLAYER
@@ -82,12 +91,12 @@ for (var i = 0; i < gameHistory.length - 1; ++i) {
         if (input[8] === "SHOW") {
           //SHOW
           //FIXME PART 1: ADDS CARD IF I CALL SHOW AND THEN SHOWALL!
-          dealer.hand.showHandDealer("SHOW", input[7]);
+          dealer.hand.showHandDealer("SHOW", input[7]); //FIXME!!!!!!!!!!!!!!!
           console.log(">>>>>>>> SHOW");
         } else if (input[8] === "SHOWALL") {
           //SHOWALL
           //FIXME PART 2: ADDS CARD IF I CALL SHOW AND THEN SHOWALL!
-          dealer.hand.showHandDealer("SHOWALL", input[7]);
+          dealer.hand.showHandDealer("SHOWALL", input[7]); //FIXME!!!!!!!!!!!!!!
           console.log(">>>>>>>> SHOWALL");
         }
       } else if (input[3] === "CHECKTURN") {
